@@ -12,10 +12,10 @@
 <body>
 <nav class="navbar sticky-top navbar-light bg-light">
   <h3 class=".navbar-brand"><a class="navbar-brand" href="#">Stock Tracker</a></h3>
-  <div class="" id="navbarText">
+  <div class="form-inline" id="navbarText">
     <% if signed_in? %>
-      <span class="navbar-text">Signed in as: <%= current_user.email %></span>
-      <%= button_to 'Sign out', sign_out_path, method: :delete %>
+      <span class="navbar-text mr-sm-2">Signed in as: <%= current_user.email %></span>
+      <%= button_to 'Sign out', sign_out_path, method: :delete, class: "mr-sm-2" %>
     <% end %>
   </div>
 </nav>
