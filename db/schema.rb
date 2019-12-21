@@ -10,7 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_21_042532) do
+ActiveRecord::Schema.define(version: 2019_12_21_171229) do
+
+  create_table "stocks", force: :cascade do |t|
+    t.string "symbol"
+    t.string "company_name"
+    t.string "exchange"
+    t.string "industry"
+    t.string "website"
+    t.text "description"
+    t.string "ceo"
+    t.string "issue_type"
+    t.string "sector"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
