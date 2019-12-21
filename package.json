@@ -1,0 +1,18 @@
+{
+  "name": "cisco_stock_tracker",
+  "private": true,
+  "dependencies": {
+    "@rails/actioncable": "^6.0.0",
+    "@rails/activestorage": "^6.0.0",
+    "@rails/ujs": "^6.0.0",
+    "@rails/webpacker": "4.2.2",
+    "turbolinks": "^5.2.0",
+    "postcss-import": "latest",
+    "postcss-flexbugs-fixes": "latest",
+    "postcss-preset-env": "latest"
+  },
+  "version": "0.1.0",
+  "devDependencies": {
+    "webpack-dev-server": "^3.10.1"
+  }
+}
