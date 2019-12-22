@@ -10,10 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_21_171229) do
+ActiveRecord::Schema.define(version: 2019_12_22_022501) do
 
   create_table "stocks", force: :cascade do |t|
-    t.string "symbol"
+    t.string "symbol", limit: 10
     t.string "company_name"
     t.string "exchange"
     t.string "industry"
@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 2019_12_21_171229) do
     t.string "sector"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["symbol"], name: "index_stocks_on_symbol", unique: true
   end
 
   create_table "users", force: :cascade do |t|
