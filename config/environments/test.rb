@@ -49,4 +49,8 @@ Rails.application.configure do
 
   # config/environments/{development,test}.rb
   config.action_mailer.default_url_options = {host: 'localhost:3000'}
+
+  IEX::Api.configure do |config|
+    config.endpoint = 'https://sandbox.iexapis.com/v1' # defaults to 'https://cloud.iexapis.com/v1'
+  end
 end
