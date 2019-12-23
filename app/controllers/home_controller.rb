@@ -8,9 +8,30 @@ class HomeController < ApplicationController
   end
 
   def add_stock
-    company = @@client.company(params[:symbol])
+    user = User.find_by_email(current_user.email)
+    symbol = params[:symbol].to_s.upcase
+    stock = Stock.find_by_symbol(symbol)
+    if stock
+      add_user_to_stock(symbol, user)
+    else
+      add_new_stock(symbol, user)
+    end
+
+    redirect_back(fallback_location: root_path)
+  end
+
+  private
+
+  def add_user_to_stock(symbol, user)
+    stock = Stock.find_by_symbol(symbol)
+    stock.users << user
+    stock.save
+  end
+
+  def add_new_stock(symbol, user)
+    company = @@client.company(symbol)
     stock = Stock.new
-    stock.symbol = company.symbol
+    stock.symbol = company.symbol.to_s.upcase
     stock.company_name = company.company_name
     stock.exchange = company.exchange
     stock.industry = company.industry
@@ -19,10 +40,8 @@ class HomeController < ApplicationController
     stock.ceo = company.ceo
     stock.issue_type = company.issue_type
     stock.sector = company.sector
-    stock.users << User.find_by_email(current_user.email)
+    stock.users << user
 
     stock.save
-
-    redirect_back(fallback_location: root_path)
   end
 end
