@@ -1,4 +1,4 @@
 class StockUser < ApplicationRecord
-  belongs_to :users
-  belongs_to :stocks
+  belongs_to :user
+  belongs_to :stock
 end
