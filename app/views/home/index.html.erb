@@ -9,6 +9,15 @@
     <th scope="col">Sector</th>
     <th scope="col">Issue Type</th>
     </thead>
-    <tbody></tbody>
+    <tbody>
+    <% @stocks.each do |stock| %>
+    <th scope="row"><%= stock.symbol %></th>
+    <td><%= stock.company_name %></td>
+    <td><%= stock.exchange %></td>
+    <td><%= stock.industry %></td>
+    <td><%= stock.sector %></td>
+    <td><%= stock.issue_type %></td>
+    <% end %>
+    </tbody>
   </table>
 </div>
