@@ -20,9 +20,10 @@
   </div>
 </nav>
 <div class="container-md">
+  <br />
   <div id="flash">
     <% flash.each do |key, value| %>
-      <div role="alert" class="alert flash <%= key %>"><%= value %></div>
+      <div role="alert" class="alert alert-<%= key %>"><%= value %></div>
     <% end %>
   </div>
 

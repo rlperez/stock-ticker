@@ -14,7 +14,12 @@ class HomeController < ApplicationController
     if stock
       add_user_to_stock(symbol, user)
     else
-      add_new_stock(symbol, user)
+      begin
+        add_new_stock(symbol, user)
+      rescue IEX::Errors::SymbolNotFoundError => e
+        flash[:danger] = "Symbol #{symbol} not found"
+        puts "HomeController#add_new_stock: #{e}"
+      end
     end
 
     redirect_back(fallback_location: root_path)
