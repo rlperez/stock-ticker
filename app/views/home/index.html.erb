@@ -20,7 +20,7 @@
     </thead>
     <tbody>
     <% @stocks.each do |stock| %>
-      <tr>
+      <tr onclick="window.location='stock/<%= stock.id %>'">
         <td hidden><%= stock.id %></td>
         <th scope="row"><%= stock.symbol %></th>
         <td><%= stock.company_name %></td>
