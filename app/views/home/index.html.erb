@@ -1,5 +1,13 @@
 <div class="container">
   <h1>Stocks</h1>
+  <%= form_tag("home/add_stock", method: "post", class: "form-inline") do %>
+    <div class="form-group ">
+      <%= label_tag(:symbol, "Stock Symbol", class: "mr-sm-2") %>
+      <%= text_field_tag(:symbol, "", class: "form-control text-field mr-sm-2") %>
+      <%= submit_tag("Add", class: "mr-sm-2") %>
+    </div>
+  <% end %>
+  <br/>
   <table class="table table-striped table-hover">
     <thead class="thead-dark">
     <th scope="col">Symbol</th>
@@ -11,12 +19,14 @@
     </thead>
     <tbody>
     <% @stocks.each do |stock| %>
-    <th scope="row"><%= stock.symbol %></th>
-    <td><%= stock.company_name %></td>
-    <td><%= stock.exchange %></td>
-    <td><%= stock.industry %></td>
-    <td><%= stock.sector %></td>
-    <td><%= stock.issue_type %></td>
+      <tr>
+        <th scope="row"><%= stock.symbol %></th>
+        <td><%= stock.company_name %></td>
+        <td><%= stock.exchange %></td>
+        <td><%= stock.industry %></td>
+        <td><%= stock.sector %></td>
+        <td><%= stock.issue_type %></td>
+      </tr>
     <% end %>
     </tbody>
   </table>
