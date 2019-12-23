@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_22_030353) do
+ActiveRecord::Schema.define(version: 2019_12_23_155725) do
 
   create_table "stocks", force: :cascade do |t|
     t.string "symbol", limit: 10
@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 2019_12_22_030353) do
     t.index ["symbol"], name: "index_stocks_on_symbol", unique: true
   end
 
-  create_table "stocks_users", id: false, force: :cascade do |t|
+  create_table "stocks_users", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "stock_id", null: false
     t.index ["user_id", "stock_id"], name: "index_stocks_users_on_user_id_and_stock_id", unique: true
@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(version: 2019_12_22_030353) do
     t.string "encrypted_password", limit: 128, null: false
     t.string "confirmation_token", limit: 128
     t.string "remember_token", limit: 128, null: false
-    t.index ["email"], name: "index_users_on_email"
+    t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["remember_token"], name: "index_users_on_remember_token"
   end
 
