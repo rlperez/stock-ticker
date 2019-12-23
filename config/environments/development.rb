@@ -66,4 +66,8 @@ Rails.application.configure do
   IEX::Api.configure do |config|
     config.endpoint = 'https://sandbox.iexapis.com/v1' # defaults to 'https://cloud.iexapis.com/v1'
   end
+
+  Clearance.configure do |config|
+    config.user_model = 'User'
+  end
 end
