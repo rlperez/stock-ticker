@@ -12,4 +12,28 @@
     <p class="h6">Issue Type: <%= @stock.issue_type %></p>
     <p class="h6">Sector: <%= @stock.sector %></p>
   </div>
+  <table class="table table-striped">
+    <thead>
+    <th scope="col">Date</th>
+    <th scope="col">Open</th>
+    <th scope="col">Close</th>
+    <th scope="col">High</th>
+    <th scope="col">Low</th>
+    <th scope="col">Volume</th>
+    <th scope="col">Change Percent</th>
+    </thead>
+    <tbody>
+    <% @chart_data.each do |data| %>
+      <tr>
+        <th scope="row"><%= data.date %></th>
+        <th><%= data.open %></th>
+        <th><%= data.close %></th>
+        <th><%= data.high %></th>
+        <th><%= data.low %></th>
+        <th><%= data.volume %></th>
+        <th><%= data.change_percent %></th>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
 </div>
